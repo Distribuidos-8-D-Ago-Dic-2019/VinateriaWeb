@@ -43,7 +43,7 @@
 						<input type="hidden" name="id" value="<?php echo $producto['id'] ?>">
 						<button class="btn btn-secondary" type="submit">Ver Producto</button>
 					</form>
-					<input type="hidden" id="producto_<?php echo $producto['id'] ?>" value="<?php echo $this->producto['id'] ?>">
+					<input type="hidden" id="producto_<?php echo $producto['id'] ?>" value="<?php echo $producto['id'] ?>">
 					<input type="hidden" id="precio_<?php echo $producto['id'] ?>" value="<?php echo $producto['precio'] ?>">
 					<button id="carrito" value="<?php echo $producto['id'] ?>" type="button" class="btn btn-primary"><img src="<?php echo URL ?>vista/carshop.png" alt="Logo" style="width:20px;">Añadir al Carrito</button>
 				</div>
