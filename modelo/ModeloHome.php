@@ -8,12 +8,22 @@ class ModeloHome extends Modelo {
 		$productos = array();
 		$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where cantidad>0";
 		if($result = mysqli_query($this->conexion,$sql)){
-			while ($obj = mysqli_fetch_array($result)){
+			while ($obj =  mysqli_fetch_array($result)){
 				array_push(	$productos, $obj);
 			}
 			mysqli_free_result($result);
+		} else {
+			return null;
 		}
-		$this->conexion->close();
+		return $productos;
+	}
+
+		function getProducto1() {
+		$productos = array();
+		$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where cantidad>0";
+		if($result = mysqli_query($this->conexion,$sql)){
+			return mysqli_fetch_object($result);
+		}
 		return $productos;
 	}
 

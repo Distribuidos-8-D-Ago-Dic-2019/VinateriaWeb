@@ -19,11 +19,8 @@ class Controlador {
 			$result = $algo->query($sql)->fetch_assoc();
 			$session = $result['sesion'];
 			if ($_SESSION['id'] != $session) {
-				echo "algo";
 				session_destroy();
 				unset($_SESSION);
-				echo "<script type='text/javascript'> alertify.alert('Error', 'Su sesion se inicio en otro equipo', 
-					function(){  }); </script>";
 				header('Location: '.URL.'home');
 			}
 		}

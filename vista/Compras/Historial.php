@@ -1,6 +1,6 @@
 <?php if (!empty($this->carrito)) { ?>
 	<?php $total = 0 ?>
-	<?php foreach ($this->carrito as $key => $producto) { $subtotal = $producto['cantidad']*$producto['precio']; $total = $total + $subtotal; ?>
+	<?php foreach ($this->carrito as $producto) { $subtotal = $producto['cantidad']*$producto['precio']; $total = $total + $subtotal; ?>
 		<div class='card mb-2'>
 			<div class='card-body'>
 				<div class='row align-items-center'>
