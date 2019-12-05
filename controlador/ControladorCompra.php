@@ -8,10 +8,6 @@ class Compra extends Controlador{
 	function historial(){
 		$this->carrito = $this->modelo->getCompras($_SESSION['user']);
 		$total = 0;
-		echo "
-		<br>
-		<br>
-		<br>";
 
 		$this->setHeader();
 		$this->setFooter();
