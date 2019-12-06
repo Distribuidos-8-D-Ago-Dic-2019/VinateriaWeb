@@ -33,6 +33,7 @@
 	function getCarrito($usuario){
 		$carrito = array();
 		$sql = "SELECT producto.imagen, producto.nombre as producto, producto.precio, carrito.producto as clave_producto,  count(*) as cantidad FROM carrito inner join producto on carrito.producto = producto.id where usuario = '{$usuario}' group by producto";
+		echo $sql;
 		if($result = mysqli_query($this->conexion,$sql)){
 			while ($obj = mysqli_fetch_array($result)){
 				array_push(	$carrito, $obj);
