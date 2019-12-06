@@ -74,7 +74,7 @@ class Carrito extends Controlador{
 	}
 
 	function insertarCarrito(){
-		$this->modelo->addCarrito($_SESSION['user'],$_POST['producto'],$_POST['precio']);
+		$this->modelo->addCarrito($_SESSION['user'],$_POST['producto']);
 		header("Location: ".URL."home");
 	}
 

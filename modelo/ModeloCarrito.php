@@ -4,7 +4,7 @@
 		parent::__construct();
 	}
 	 
-	function addCarrito($usuario,$producto,$total){
+	function addCarrito($usuario,$producto){
 		$sql = "insert into carrito(usuario,producto) values('{$usuario}','{$producto}')";
 		echo $sql;
 		if($result=$this->conexion->query($sql)){

@@ -5,7 +5,9 @@ class ModeloHome extends Modelo {
 	}
 
 	function getProducto() {
-		$productos = array();
+		$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
+		$respuesta = $client->getAllProductos();
+		$productos = $respuesta->return;/*
 		$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where cantidad>0";
 		if($result = mysqli_query($this->conexion,$sql)){
 			while ($obj =  mysqli_fetch_array($result)){
@@ -14,7 +16,7 @@ class ModeloHome extends Modelo {
 			mysqli_free_result($result);
 		} else {
 			return null;
-		}
+		}*/
 		return $productos;
 	}
 
