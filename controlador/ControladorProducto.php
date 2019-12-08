@@ -9,7 +9,7 @@ class Producto extends Controlador{
 	}
 
 	function index() {
-		$producto = $this->modelo->getProducto($_POST['id']);
+		$this->producto = $this->modelo->getProducto($_POST['id']);
 		
 		$this->setVista("Producto/index");
 	}

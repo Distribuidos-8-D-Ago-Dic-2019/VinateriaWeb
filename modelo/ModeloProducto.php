@@ -9,7 +9,7 @@
 
 	function getProducto($id) {
 		$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where id= '".$id."'";
-		$result = $this->conexion->query($sql)->fetch_assoc();
+		$result = $this->conexion->query($sql)->fetch_object();
 		$this->conexion->close();
 		return $result;
 	}

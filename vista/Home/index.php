@@ -38,7 +38,7 @@
 				</div>
 				<div class="card-footer">
 					<form method="post" action="<?php echo URL ?>producto" style="margin-bottom: 5px">
-						<input type="hidden" name="id" value="<?php echo $productothis->id ?>">
+						<input type="hidden" name="id" value="<?php echo $producto->id ?>">
 						<button class="btn btn-secondary" type="submit">Ver Producto</button>
 					</form>
 					<input type="hidden" id="producto_<?php echo $producto->id ?>" value="<?php echo $producto->id ?>">

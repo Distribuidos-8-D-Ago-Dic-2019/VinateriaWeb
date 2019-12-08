@@ -1,5 +1,5 @@
 <?php if (!empty($this->productos)) { ?>
-	<h4>Resultados para <?php echo $_POST['buscar'] ?></h4>
+	<h4>Resultados para "<?php echo $_POST['buscar'] ?>"</h4>
 	<br>
 	<div class="row">
 		<?php foreach ($this->productos as $producto) { ?>
@@ -24,5 +24,5 @@
 		<?php } ?>
 	</div>
 <?php }else { ?>
-	<h4>No hay resultados para <?php echo $_POST['buscar'] ?></h4>
+	<h4>No hay resultados para "<?php echo $_POST['buscar'] ?>"</h4>
 <?php } ?>
