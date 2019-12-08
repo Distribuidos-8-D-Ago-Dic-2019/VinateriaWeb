@@ -1,8 +1,3 @@
-<input type="hidden" name='usuario' value="<?php echo $_SESSION['user'] ?>">
-<input type='hidden' id="tipo" value="<?php echo $_SESSION['tipo_usuario'] ?>">
-<br>
-<br>
-<br>
 <?php $total = 0; ?>
 <?php foreach ($this->productos as $producto) {$subtotal = $producto['cantidad']*$producto['precio'];
 	$total = $total + $subtotal;

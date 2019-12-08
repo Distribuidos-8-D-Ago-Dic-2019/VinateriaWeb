@@ -1,3 +1,0 @@
-create view productos as select producto.id as idProducto, producto.nombre as producto, producto.contenido, categoria.nombre as categoria, producto.precio, producto.descripcion, producto.cantidad, producto.imagen, producto.descuento, marca.nombre as marca, marca.origen from producto inner join categoria on producto.categoria= categoria.id inner join marca on producto.marca= marca.id;
-
-create view compras as select compra.id as no_compra, usuario.usuario, productos.*, compra.fecha,compra.cantidad as cantidad_comprada, compra.total,compra.subtotal, usuario.tarjeta from compra inner join usuario on usuario.usuario=compra.usuario inner join (select *from productos) as productos on compra.producto=productos.id;
