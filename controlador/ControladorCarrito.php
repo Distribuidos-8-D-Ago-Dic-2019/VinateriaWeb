@@ -20,6 +20,7 @@ class Carrito extends Controlador{
 
 	function eliminarCarrito(){
 		$this->modelo->deleteCarrito($_SESSION['user'],$_POST['producto']);
+		var_dump($_SESSION);
 		header("Location: ".URL."carrito");
 	}
 }

@@ -15,15 +15,38 @@
 	}
 
 	function getProductos() {
-		$productos = array();
-		$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, catidad FROM producto";
+		$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
+		$respuesta = $client->getAllProductos();
+		$productos = $respuesta->return;
+		/*$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where cantidad>0";
+		if($result = mysqli_query($this->conexion,$sql)){
+			while ($obj =  mysqli_fetch_array($result)){
+				array_push(	$productos, $obj);
+			}
+			mysqli_free_result($result);
+		} else {
+			return null;
+		}*/
+		return $productos;
+	}
+
+	function searchProductos($busqueda) {
+		$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
+		$respuesta = $client->getProductosbyName(array('like' => $busqueda));
+		if (isset($respuesta->return)) {
+			$productos = $respuesta->return;
+		}else {
+			$productos = '';
+		}
+		/*$productos = array();
+		$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where nombre like '".$busqueda."%' and cantidad>0";
 		if($result = mysqli_query($this->conexion,$sql)){
 			while ($obj = mysqli_fetch_array($result)){
 				array_push(	$productos, $obj);
 			}
 			mysqli_free_result($result);
 		}
-		$this->conexion->close();
+		$this->conexion->close();*/
 		return $productos;
 	}
 }

@@ -4,7 +4,7 @@ $(document).ready(function(){
 		var configuracion = { 
 			funcion: "agregarCarrito",
 			user: $("#user").val(),
-			producto: $("#producto_"+id).val()
+			producto: id
 		};
 		$.ajax({
 			type: "POST",

@@ -40,7 +40,7 @@
 		<div class="collapse navbar-collapse" id="navb">
 			<ul class="navbar-nav mr-auto">
 			</ul>
-			<form method="post" class="form-inline my-2 my-lg-0" action="<?php echo URL ?>home/buscar">
+			<form method="post" class="form-inline my-2 my-lg-0" action="<?php echo URL ?>home">
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<button type="submit" class="btn btn-secondary input-group-text"><i class="fas fa-search"></i></button>
@@ -289,6 +289,10 @@
 	</div>
 
 	<input type="hidden" id="user" value="<?php echo $_SESSION['user'] ?>">
+
+	<br>
+	<br>
+	<br>
 	
 	<div class="container">
 		

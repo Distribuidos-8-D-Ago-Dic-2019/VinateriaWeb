@@ -1,6 +1,6 @@
 <?php
 require_once 'libs/config.php';
-class Ajax {	
+class Ajax {
 	private $conexion;
 	
 	public function moverCarrito ($usuario) {
