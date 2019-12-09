@@ -27,7 +27,7 @@ class Ajax {
 		}
 	}
 
-	public function agregarCarrito2() {
+	public function agregarCarrito() {
 		/*$usuario = $_POST['user'];
 		$producto = $_POST['producto'];
 		$client = new SoapClient("http://192.168.84.225:8080/WebServer/WebService?wsdl");*/
