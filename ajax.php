@@ -30,8 +30,8 @@ class Ajax {
 	public function agregarCarrito() {
 		/*$usuario = $_POST['user'];
 		$producto = $_POST['producto'];
-		$client = new SoapClient("http://192.168.84.225:8080/WebServer/WebService?wsdl");*/
-		$respuesta = $client->addCarrito(array('user' => $usuario, 'product' => $producto));
+		$client = new SoapClient("http://192.168.84.225:8080/WebServer/WebService?wsdl");
+		$respuesta = $client->addCarrito(array('user' => $usuario, 'product' => $producto));*/
 		$sql = "insert into carrito(usuario,producto) values('{$usuario}','{$producto}')";
 		if($result=$this->conexion->query($sql)){
 			echo 'Se agregó el producto al carrito correctamente';

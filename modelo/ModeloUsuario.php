@@ -6,8 +6,6 @@
 
 	function registrarUsuario($usuario,$contrasena,$nombre,$apellidos,$sexo,$telefono,$fecha_nacimiento,$tipo_usuario){
 		$sql = "insert into usuario(usuario,contrasena,nombre,apellidos,sexo,telefono,fecha_nacimiento,tipo_usuario) values('{$usuario}','{$contrasena}','{$nombre}','{$apellidos}','{$sexo}','{$telefono}','{$fecha_nacimiento}','{$tipo_usuario}')";
-
-		echo $sql;
 		if($result=$this->conexion->query($sql)){
             echo 'Se registró al usuario correctamente';
         }else{
@@ -19,6 +17,7 @@
         	}
         }
 		$this->conexion->close();
+		
 		return $result;
 	}
 
