@@ -5,8 +5,7 @@
 	}
 
 	function deleteCarrito($id,$producto){
-		$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
-		$respuesta = $client->deleteCarritobyProduct(array('user' => $id, 'product' => $producto));
+		$respuesta = $this->jax->deleteCarritobyProduct(array('user' => $id, 'product' => $producto));
 		/*$sql = "SELECT id FROM carrito where usuario='{$id}' and producto={$producto} ORDER BY id DESC LIMIT 1";
 		$result = $this->conexion->query($sql)->fetch_assoc();
 		var_dump($result);
@@ -33,8 +32,7 @@
 	}
 
 	function deleteAllCarrito($id){
-		$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
-		$respuesta = $client->deleteCarrito(array('user' => $id));
+		$respuesta = $this->jax->deleteCarrito(array('user' => $id));
 		/*$sql = "delete from carrito where usuario='{$id}'";
 		echo $sql;
 		$this->conexion->query($sql);

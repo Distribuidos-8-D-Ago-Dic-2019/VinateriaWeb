@@ -8,8 +8,7 @@
 
 
 	function getProducto($id) {
-		$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
-		$respuesta = $client->getProductobyId(array('id' => $id));
+		$respuesta = $this->jax->getProductobyId(array('id' => $id));
 		$producto = $respuesta->return;
 		return $producto;
 		/*$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where id= '".$id."'";
@@ -19,8 +18,7 @@
 	}
 
 	function getProductos() {
-		$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
-		$respuesta = $client->getAllProductos();
+		$respuesta = $this->jax->getAllProductos();
 		$productos = $respuesta->return;
 		/*$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where cantidad>0";
 		if($result = mysqli_query($this->conexion,$sql)){
@@ -35,8 +33,7 @@
 	}
 
 	function searchProductos($busqueda) {
-		$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
-		$respuesta = $client->getProductosbyName(array('like' => $busqueda));
+		$respuesta = $this->jax->getProductosbyName(array('like' => $busqueda));
 		if (isset($respuesta->return)) {
 			$productos = $respuesta->return;
 		}else {

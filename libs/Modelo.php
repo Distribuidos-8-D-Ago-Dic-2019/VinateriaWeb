@@ -10,6 +10,9 @@ class Modelo {
 		if ($this->conexionBanco->connect_error) {
 			die("Connection failed: " . $this->conexionBanco->connect_error);
 		}
+
+
+		$this->jax = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
 	}
 }
 ?>
