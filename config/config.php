@@ -18,5 +18,4 @@ define('USER_LOG', $config['USER']);
 define('PASS_LOG', $config['PASS']);
 define('DB_LOG', $config['DB']);
 
-var_dump($config);
 ?>
