@@ -1,6 +1,6 @@
 <?php
 require_once 'conexion.php';
-//error_reporting(0);
+error_reporting(0);
 $bases = array();
 $query = "SELECT server, name, user, password, status FROM base";
 $result = $mysql->query($query);
