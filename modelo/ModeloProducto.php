@@ -13,7 +13,7 @@
 			$productos = $respuesta->return;
 		}else {
 			$productos = array();
-			$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where nombre like '".$busqueda."%' and cantidad>0";
+			$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where id= '".$id."'";
 			if($result = mysqli_query($this->conexion,$sql)){
 				while ($obj = mysqli_fetch_object($result)){
 					array_push(	$productos, $obj);
@@ -35,7 +35,7 @@
 			$productos = $respuesta->return;
 		}else {
 			$productos = array();
-			$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where nombre like '".$busqueda."%' and cantidad>0";
+			$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where cantidad>0";
 			if($result = mysqli_query($this->conexion,$sql)){
 				while ($obj = mysqli_fetch_object($result)){
 					array_push(	$productos, $obj);
