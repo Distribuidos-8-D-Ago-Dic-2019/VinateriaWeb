@@ -1,6 +1,8 @@
 <?php
 require_once '../config/config.php';
 
+var_dump($_POST0);
+
 $conexion = new mysqli(SERVER_BANCO, USER_BANCO, PASS_BANCO, DB_BANCO);
 if ($this->conexionBanco->connect_error) {
 	die("Connection failed: " . $this->conexionBanco->connect_error);
