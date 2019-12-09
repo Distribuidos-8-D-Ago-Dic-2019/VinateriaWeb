@@ -6,6 +6,7 @@
 	
 	function addCompra($usuario,$total){
 		$sql = "insert into compra(usuario,fecha,total) values('$usuario',NOW(),$total)";
+		$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())');
 
 		echo $sql;
 		if($result=$this->conexion->query($sql)){

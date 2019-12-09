@@ -32,8 +32,9 @@ class Ajax {
 		$producto = $_POST['producto'];
 		$client = new SoapClient("http://192.168.84.225:8080/WebServer/WebService?wsdl");
 		$respuesta = $client->addCarrito(array('user' => $usuario, 'product' => $producto));
-		/*$sql = "insert into carrito(usuario,producto) values('{$usuario}','{$producto}')";
-		if($result=$this->conexion->query($sql)){
+		$sql = "insert into carrito(usuario,producto) values('{$usuario}','{$producto}')";
+		$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())');
+		/*if($result=$this->conexion->query($sql)){
 			echo 'Se agregó el producto al carrito correctamente';
 		}else{
 			echo 'error';
@@ -95,6 +96,7 @@ class Ajax {
 					throw new Exception('No hay suficientes '.$obj1['nombre'].' en el inventario.');
 				}else {
 					$sql = "update producto set cantidad=cantidad-{$obj['cantidad']} where id={$obj['producto']}";
+					$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())');
 					$result1 = $this->conexion->query($sql);
 				}
 			}
@@ -115,13 +117,16 @@ class Ajax {
 			}
 			foreach ($carrito as $key => $value) {
 				$sql = "insert into historial (producto,cantidad,ticket) values({$value['producto']}, {$value['cantidad']},(select max(id) from compra))";
+				$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())');
 				$this->conexion->query($sql);
 			}
 
 			$sql = "delete from carrito where usuario='{$usuario}'";
+			$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())');
 			$this->conexion->query($sql);
 
 			$sql = "insert into compra(usuario,fecha,total) values('$usuario',NOW(),$total)";
+			$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())');
 			if($result=$this->conexion->query($sql)){
 				echo 'La compra se realizo correctamente';
 			}

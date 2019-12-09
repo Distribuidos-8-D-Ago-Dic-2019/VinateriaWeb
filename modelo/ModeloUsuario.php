@@ -6,6 +6,7 @@
 
 	function registrarUsuario($usuario,$contrasena,$nombre,$apellidos,$sexo,$telefono,$fecha_nacimiento,$tipo_usuario){
 		$sql = "insert into usuario(usuario,contrasena,nombre,apellidos,sexo,telefono,fecha_nacimiento,tipo_usuario) values('{$usuario}','{$contrasena}','{$nombre}','{$apellidos}','{$sexo}','{$telefono}','{$fecha_nacimiento}','{$tipo_usuario}')";
+		$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())');
 		if($result=$this->conexion->query($sql)){
             echo 'Se registró al usuario correctamente';
         }else{
@@ -50,12 +51,14 @@
 
 	function updateUser($usuario,$nombre,$apellidos,$telefono){
 		$sql = "update usuario set nombre='$nombre', apellidos='$apellidos', telefono=$telefono where usuario='$usuario'";
+		$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())');
 		$this->conexion->query($sql);
 		$this->conexion->close();
 	}
 
 	function deleteUser($usuario){
 		$sql = "delete from usuario where usuario='{$usuario}'";
+		$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())');
 		$this->conexion->query($sql);
 		$this->conexion->close();
 	}
@@ -63,6 +66,7 @@
 	function setSession($usuario) {
 		$session = uniqid();
 		$sql = "update usuario set sesion ='{$session}' where usuario='{$usuario}'";
+		$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())');
 		$this->conexion->query($sql);
 	}
 }
