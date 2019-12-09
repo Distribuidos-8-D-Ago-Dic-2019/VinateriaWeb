@@ -1,14 +1,9 @@
 <?php
-require_once '../libs/config.php';
+require_once '../config/config.php';
 
-$servername = SERVER;
-$username = USER;
-$password = PASS;
-$dbname = "banco";
-
-$conexion = new mysqli($servername, $username, $password, $dbname);
-if ($conexion->connect_error) {
-	die("Connection failed: " . $conexion->connect_error);
+$conexion = new mysqli(SERVER_BANCO, USER_BANCO, PASS_BANCO, DB_BANCO);
+if ($this->conexionBanco->connect_error) {
+	die("Connection failed: " . $this->conexionBanco->connect_error);
 }
 
 mysqli_query($conexion,"SET NAMES 'utf8'");
