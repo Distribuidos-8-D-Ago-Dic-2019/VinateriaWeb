@@ -8,7 +8,7 @@ define('USER', $configuracion['user']);
 define('PASS', $configuracion['password']);
 define('DB', $configuracion['name']);
 
-define('SERVER_BANCO', '192.168.84.225');
+define('SERVER_BANCO', '192.168.84.124');
 define('USER_BANCO', 'banco');
 define('PASS_BANCO', '');
 define('DB_BANCO', 'banco');
@@ -17,4 +17,6 @@ define('SERVER_LOG', $config['SERVER']);
 define('USER_LOG', $config['USER']);
 define('PASS_LOG', $config['PASS']);
 define('DB_LOG', $config['DB']);
+
+var_dump($config);
 ?>
