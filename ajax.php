@@ -1,5 +1,5 @@
 <?php
-require_once 'libs/config.php';
+require_once 'config/config.php';
 class Ajax {
 	private $conexion;
 	

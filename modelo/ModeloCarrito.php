@@ -19,7 +19,7 @@
 	function getCarrito($usuario){
 		/*$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
 		$respuesta = $client->getCarrito(array('user' => $usuario));
-		var_dump($respuesta);*/
+		$carrito = $respuesta->return;*/
 		$carrito = array();
 		$sql = "SELECT producto.imagen, producto.nombre as producto, producto.precio, carrito.producto as clave_producto,  count(*) as cantidad FROM carrito inner join producto on carrito.producto = producto.id where usuario = '{$usuario}' group by producto";
 		if($result = mysqli_query($this->conexion,$sql)){

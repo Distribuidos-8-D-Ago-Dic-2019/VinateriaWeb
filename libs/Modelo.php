@@ -12,9 +12,9 @@ class Modelo {
 			die("Connection failed: " . $this->conexion->connect_error);
 		}
         
-        $servername = SERVER;
-		$username = USER;
-		$password = PASS;
+        $servername = SERVER_BANCO;
+		$username = USER_BANCO;
+		$password = PASS_BANCO;
 		$dbname = "banco";
         $this->conexionBanco = new mysqli($servername, $username, $password, $dbname);
 		if ($this->conexionBanco->connect_error) {

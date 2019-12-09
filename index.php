@@ -1,5 +1,5 @@
 <?php
-require_once 'libs/config.php';
+require_once 'config/config.php';
 require_once 'libs/Controlador.php';
 require_once 'libs/Modelo.php';
 

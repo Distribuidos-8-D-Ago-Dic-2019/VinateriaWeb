@@ -8,14 +8,14 @@
 
 
 	function getProducto($id) {
-		/*$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
+		$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
 		$respuesta = $client->getProductobyId(array('id' => $id));
 		$producto = $respuesta->return;
-		return $producto;*/
-		$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where id= '".$id."'";
+		return $producto;
+		/*$sql = "SELECT id, nombre, descripcion, precio, contenido, imagen, cantidad FROM producto where id= '".$id."'";
 		$result = $this->conexion->query($sql)->fetch_object();
 		$this->conexion->close();
-		return $result;
+		return $result;*/
 	}
 
 	function getProductos() {
