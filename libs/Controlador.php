@@ -10,11 +10,7 @@ class Controlador {
 
 
 		if ($_SESSION['tipo_usuario'] != "t") {
-			$servername = SERVER;
-			$username = USER;
-			$password = PASS;
-			$dbname = "vinateria";
-			$algo = new mysqli($servername, $username, $password, $dbname);
+			$algo = new mysqli(SERVER, USER, PASS, DB);
 			$sql = "SELECT sesion FROM usuario where usuario='{$_SESSION['user']}'";
 			$result = $algo->query($sql)->fetch_assoc();
 			$session = $result['sesion'];
