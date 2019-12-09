@@ -7,25 +7,6 @@
 	function getSaldo($tarjeta){
 		$sql = "select saldo from tarjeta where tarjeta={$tarjeta}";
 		$result = $this->conexionBanco->query($sql);
-		if ($result->num_rows > 0) {
-			$obj = mysqli_fetch_array($result);
-			echo "Tarjeta válida.";
-			return $obj;
-		}else{
-			echo "Tarjeta no existente.";
-			return null;
-		}
-	}
-
-	function updateSaldo($tarjeta, $total){
-		$sql = "update tarjeta set saldo=(saldo-{$total}) where tarjeta={$tarjeta}";
-
-		echo $sql;
-		if($result=$this->conexionBanco->query($sql)){
-			echo 'Se agregó el producto al carrito correctamente';
-		}else{
-			echo 'error';
-		}
-		$this->conexion->close();
+		return $obj;
 	}
 }

@@ -3,22 +3,6 @@
 	public function __construct(){
 		parent::__construct();
 	}
-	 
-	function addCarrito($usuario,$producto){
-		$sql = "insert into carrito(usuario,producto) values('{$usuario}','{$producto}')";
-		echo $sql;
-		if($result=$this->conexion->query($sql)){
-			echo 'Se agregó el producto al carrito correctamente';
-		}else{
-			$sql = "select *from carrito where producto= '{producto}'";
-			if($this->conexion->query($sql)){
-				echo 'El producto ya está en el carrito';
-			}else{
-			echo 'error';
-			}
-		}
-		$this->conexion->close();
-	}
 
 	function deleteCarrito($id,$producto){
 		$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
@@ -33,6 +17,9 @@
 	}
 
 	function getCarrito($usuario){
+		/*$client = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
+		$respuesta = $client->getCarrito(array('user' => $usuario));
+		var_dump($respuesta);*/
 		$carrito = array();
 		$sql = "SELECT producto.imagen, producto.nombre as producto, producto.precio, carrito.producto as clave_producto,  count(*) as cantidad FROM carrito inner join producto on carrito.producto = producto.id where usuario = '{$usuario}' group by producto";
 		if($result = mysqli_query($this->conexion,$sql)){
