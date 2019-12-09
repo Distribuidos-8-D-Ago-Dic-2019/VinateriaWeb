@@ -1,6 +1,6 @@
 <?php
 require_once 'replica.php';
-define('URL', 'http://192.168.84.181/VinateriaWeb/');
+define('URL', 'http://192.168.84.185/VinateriaWeb/');
 define('BACK', 'http://localhost/VinateriaWeb/');
 
 define('SERVER', $configuracion['server']);
