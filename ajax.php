@@ -1,7 +1,17 @@
 <?php
 require_once 'config/config.php';
 class Ajax {
-	private $conexion;
+
+	function __construct() {
+		$this->conexion = new mysqli(SERVER, USER, PASS, DB);
+		if ($this->conexion->connect_error) {
+			die("Connection failed: " . $this->conexion->connect_error);
+		}
+		$this->conexionBanco = new mysqli(SERVER_BANCO, USER_BANCO, PASS_BANCO, DB_BANCO);
+		if ($this->conexionBanco->connect_error) {
+			die("Connection failed: " . $this->conexionbanco->connect_error);
+		}
+	}
 	
 	public function moverCarrito ($usuario) {
 		$carrito = array();
@@ -14,22 +24,6 @@ class Ajax {
 		foreach ($carrito as $key => $value) {
 			$sql = "insert into historial (producto,cantidad,ticket) values({$value['producto']}, {$value['cantidad']},(select max(id) from compra))";
 			$this->conexion->query($sql);
-		}
-	}
-
-	function __construct() {
-		$servername = SERVER;
-		$username = USER;
-		$password = PASS;
-		$dbname = "vinateria";
-		$this->conexion = new mysqli($servername, $username, $password, $dbname);
-		if ($this->conexion->connect_error) {
-			die("Connection failed: " . $this->conexion->connect_error);
-		}
-		$dbname = "banco";
-		$this->conexionBanco = new mysqli($servername, $username, $password, $dbname);
-		if ($this->conexionBanco->connect_error) {
-			die("Connection failed: " . $this->conexionbanco->connect_error);
 		}
 	}
 

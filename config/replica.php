@@ -21,6 +21,4 @@ foreach ($bases as  $base) {
 		$status[$base['server']] = 'HIGH';
 	}
 }
-
-
 ?>
