@@ -47,6 +47,6 @@
 	</div>
 </div>
 <form method='post' id='comprar' action='<?php echo URL ?>home'>
-	<input type='hidden' id='total' name='total' value='$total'>
+	<input type='hidden' id='total' name='total' value='<?php echo $total ?>'>
 	<button class='btn btn-secondary' id='comprar' type='button'>Comprar Carrito</button>
 </form>
