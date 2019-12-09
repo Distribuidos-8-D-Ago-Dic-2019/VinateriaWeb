@@ -11,8 +11,9 @@ class Modelo {
 			die("Connection failed: " . $this->conexionBanco->connect_error);
 		}
 
+		$this->conexionLog = new mysqli(SERVER_LOG, USER_LOG, PASS_LOG, DB_LOG);
 
-		$this->jax = new SoapClient("http://localhost:8080/WebServer/WebService?wsdl");
+		$this->jax = new SoapClient("http://192.168.84.225:8080/WebServer/WebService?wsdl");
 	}
 }
 ?>
