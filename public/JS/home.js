@@ -12,21 +12,6 @@ $(document).ready(function(){
 			data: configuracion,
 			success: function(response)
 			{
-				if (response!="") {
-					var configuracion = { 
-						funcion: "agregarCarrito2",
-						user: $("#user").val(),
-						producto: id
-					};
-					$.ajax({
-						type: "POST",
-						url: 'ajax.php',
-						data: configuracion,
-						success: function(response)
-						{
-						}
-					});
-				}
 				alertify.success('Agregado correctamente');
 			}
 		});
