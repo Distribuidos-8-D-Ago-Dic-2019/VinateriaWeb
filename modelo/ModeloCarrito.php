@@ -7,8 +7,8 @@
 	function deleteCarrito($id,$producto){
 		$respuesta = $this->jax->deleteCarritobyProduct(array('user' => $id, 'product' => $producto));
 		$sql = "SELECT id FROM carrito where usuario='{$id}' and producto={$producto} ORDER BY id DESC LIMIT 1";
-		$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("$sql", NOW())');
-		echo 'INSERT INTO LOG (query, date) VALUES ("{$sql}", NOW())';
+		$this->conexionLog->query('INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())');
+		echo 'INSERT INTO LOG (query, date) VALUES ("'.$sql.'", NOW())';
 
 		/*$sql = "SELECT id FROM carrito where usuario='{$id}' and producto={$producto} ORDER BY id DESC LIMIT 1";
 		$result = $this->conexion->query($sql)->fetch_assoc();
