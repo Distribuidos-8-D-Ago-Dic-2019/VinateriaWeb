@@ -70,6 +70,7 @@ class Ajax {
 		$usuario = $_POST['user'];
 		$total = $_POST['total'];
 		$tarjeta = $_POST['tarjeta'];
+		var_dump($_POST);
 		$this->conexion->begin_transaction();
 		$this->conexionBanco->begin_transaction();
 		try {
